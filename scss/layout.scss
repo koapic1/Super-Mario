@@ -11,6 +11,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     color: #111;
+    height: 100vh;
 }
 a {
     color: inherit;
@@ -54,7 +55,7 @@ img {
                 justify-content: center;
                 align-items: center;
                 font-weight: 700;
-                padding: 0 40px;
+                padding: 0 30px;
                 position: relative;
                 &:after {
                     content: "";
