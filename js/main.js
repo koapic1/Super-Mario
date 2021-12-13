@@ -1,5 +1,6 @@
 const charListUL = $("#main #charList");
 let charSlider = null;
+let itemTweener = null;
 loadJson("../data/mario.json");
 function loadJson(jsondata) {
     $.ajax({
@@ -43,12 +44,16 @@ function loadJson(jsondata) {
                 },
                 mousewheel: true,
             });
+            if (itemTweener !== null) {
+                itemTweener.kill();
+                itemTweener = null;
+            }
             moveMario("#charList .swiper-slide-active .img");
         },
     });
 }
 function moveMario(moveItem) {
-    gsap.to(moveItem, {
+    itemTweener = gsap.to(moveItem, {
         x: Math.random() * 100 - 50,
         y: Math.random() * 200 - 100,
         duration: Math.random() + 0.5,
